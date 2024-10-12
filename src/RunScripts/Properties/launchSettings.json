@@ -1,0 +1,35 @@
+{
+  "profiles": {
+    "RunScripts": {
+      "commandName": "Project"
+    },
+    "Config": {
+      "commandName": "Project",
+      "commandLineArgs": "-config"
+    },
+    "Init": {
+      "commandName": "Project",
+      "commandLineArgs": "-init"
+    },
+    "Run": {
+      "commandName": "Project",
+      "commandLineArgs": "-run"
+    },
+    "Run Override": {
+      "commandName": "Project",
+      "commandLineArgs": "-run -server localhost -dbname TestDB"
+    },
+    "Watch": {
+      "commandName": "Project",
+      "commandLineArgs": "-watch"
+    },
+    "Run Override No Check": {
+      "commandName": "Project",
+      "commandLineArgs": "-run -server localhost -dbname TestDB -ignorehash"
+    },
+    "Clear": {
+      "commandName": "Project",
+      "commandLineArgs": "-clear"
+    }
+  }
+}
