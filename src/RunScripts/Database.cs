@@ -1,6 +1,7 @@
 ﻿using RunScripts.Entities;
 using Spectre.Console;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace RunScripts;
@@ -178,6 +179,11 @@ internal partial class Database
         {
             if (!ExecuteScript(sqlScript, DatabaseConn, SqlTran))
             {
+                if (AnsiConsole.Confirm("Do you want to open the file?", defaultValue: false))
+                {
+                    OpenWithDefaultProgram(fileName);
+                }
+
                 return false;
             }
         }
@@ -226,6 +232,14 @@ internal partial class Database
         }
 
         return SQLScript;
+    }
+    private static void OpenWithDefaultProgram(string path)
+    {
+        using Process fileopener = new();
+
+        fileopener.StartInfo.FileName = "explorer";
+        fileopener.StartInfo.Arguments = "\"" + path + "\"";
+        fileopener.Start();
     }
 
     [GeneratedRegex("(.*)'(.*)'")]
