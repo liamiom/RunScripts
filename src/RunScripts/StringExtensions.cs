@@ -5,7 +5,7 @@ internal static class StringExtensions
     {
         List<string> output = new();
         string script = "";
-        foreach (string line in Source.Replace("\n", "").Split('\r'))
+        foreach (string line in Source.Replace("\r", "").Split('\n'))
         {
             if (line.Trim().ToLower() != "go")
             {
